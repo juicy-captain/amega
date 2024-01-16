@@ -11,7 +11,7 @@ export const UserInfo: FC<IProps> = ({ data }) => {
     <UserInfoWrapper>
       <UserInfoBlock>
         <BlockTitle>IP Address</BlockTitle>
-        <span>{data?.ip}</span>
+        <span>{`${data?.flag.emoji} ${data?.ip}`}</span>
         <span>{data?.type}</span>
       </UserInfoBlock>
       <UserInfoBlock>

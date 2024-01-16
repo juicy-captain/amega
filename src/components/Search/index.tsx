@@ -13,7 +13,7 @@ export const Search: FC<IProps> = ({ ip, update }) => {
     /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
+    setValue(e.target.value.trim());
   };
 
   const inputIP = useRef<HTMLInputElement>(null);

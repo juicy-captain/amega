@@ -7,7 +7,6 @@ export function useIpInfo() {
 
   async function getUserData(url: string = "") {
     try {
-      console.log("userdataeffect");
       const response = await axios.get<IUserInfo>(
         `http://ipwho.is/${url}?output=json`,
       );
