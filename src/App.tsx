@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Wrapper } from "./App.styled";
+import { GMap } from "./components/GMap/GMap";
+import { Search } from "./components/Search";
+import { UserInfo } from "./components/UserInfo";
+import { useIpInfo } from "./hooks/useIpInfo";
+import { useMapLoad } from "./hooks/useMapLoad";
 
-function App() {
+export const App = () => {
+  const { data, getIpDetails } = useIpInfo();
+  const loadMap = useMapLoad();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Wrapper>
+        <Search ip={data?.ip!} update={getIpDetails} />
+        <UserInfo data={data!} />
+      </Wrapper>
+      {loadMap && <GMap data={data!} />}
+    </>
   );
-}
-
-export default App;
+};
