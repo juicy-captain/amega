@@ -1,4 +1,4 @@
-import { FC, FormEvent, useRef, useState } from "react";
+import { FC, FormEvent, useState } from "react";
 import { InvalidIP, SearchButton, SearchForm, SearchInput } from "./styled";
 
 interface IProps {
@@ -16,7 +16,6 @@ export const Search: FC<IProps> = ({ ip, update }) => {
     setValue(e.target.value.trim());
   };
 
-  const inputIP = useRef<HTMLInputElement>(null);
   const checkIP = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!ipRegex.test(value)) {
@@ -36,11 +35,11 @@ export const Search: FC<IProps> = ({ ip, update }) => {
           checkIP(e);
         }}>
         <SearchInput
-          ref={inputIP}
           type="text"
           placeholder={ip}
           value={value}
           onChange={changeHandler}
+          pattern="^([0-9]{1,3}\.){3}[0-9]{1,3}$"
         />
         <SearchButton type="submit" className={ip === value ? "disabled" : ""}>
           IP Lookup

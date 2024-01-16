@@ -18,20 +18,22 @@ export interface ITimezoneInfo {
 
 export interface IUserInfo {
   ip: string;
-  type: string;
-  continent: string;
-  continent_code: string;
-  country: string;
-  country_code: string;
-  region: string;
-  region_code: string;
-  city: string;
+  success: boolean;
+  message: string;
+  type?: string;
+  continent?: string;
+  continent_code?: string;
+  country?: string;
+  country_code?: string;
+  region?: string;
+  region_code?: string;
+  city?: string;
   latitude: number;
   longitude: number;
-  postal: number;
-  calling_code: number;
-  capital: string;
-  flag: ICountryFlag;
-  connection: IConnectionInfo;
-  timezone: ITimezoneInfo;
+  postal?: number;
+  calling_code?: number;
+  capital?: string;
+  flag?: ICountryFlag;
+  connection?: IConnectionInfo;
+  timezone?: ITimezoneInfo;
 }

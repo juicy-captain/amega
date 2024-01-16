@@ -15,7 +15,7 @@ export const App = () => {
         <Search ip={data?.ip!} update={getIpDetails} />
         <UserInfo data={data!} />
       </Wrapper>
-      {loadMap && <GMap data={data!} />}
+      {loadMap && data?.success ? <GMap data={data!} /> : "Map unavailable"}
     </>
   );
 };
